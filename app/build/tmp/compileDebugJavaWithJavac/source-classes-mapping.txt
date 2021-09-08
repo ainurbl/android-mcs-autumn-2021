@@ -1,0 +1,2 @@
+com/ainuribatov/learnandroid/BuildConfig.java
+ com.ainuribatov.learnandroid.BuildConfig
