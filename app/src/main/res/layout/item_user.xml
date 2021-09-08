@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="8dp"
+    android:paddingHorizontal="16dp"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
@@ -11,16 +13,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/avatarImageView"
-        android:contentDescription="@string/users_picture" />
-    
+        android:id="@+id/avatarImageView" />
+
     <TextView
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:id="@+id/userNameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/avatarImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/groupNameTextView"
+        tools:text="First row"
+        android:layout_marginStart="8dp"
+        />
+
+    <TextView
+        android:layout_marginStart="16dp"
+        style="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:id="@+id/groupNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toEndOf="@+id/avatarImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="First row"
+        app:layout_constraintTop_toBottomOf="@+id/userNameTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp"
+        tools:text="Second row"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
