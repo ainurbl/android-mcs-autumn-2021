@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun loadUsers(): List<UserData> {
         return listOf(
-            UserData(avatarUrl = "", userName = "Ainur", groupName = "Б09"),
+            UserData(avatarUrl = "", userName = "Aidar", groupName = "Б09"),
             UserData(avatarUrl = "", userName = "Kirill", groupName = "Б09"),
             UserData(avatarUrl = "", userName = "Sasha", groupName = "Б09"),
             UserData(avatarUrl = "", userName = "Denil", groupName = "Б10"),
