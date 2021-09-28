@@ -8,6 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -22,13 +23,14 @@ class MainViewModel : ViewModel() {
     }
 
     private val _uiState: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
-    val viewState: Flow<ViewState> = _uiState
+    val viewState: Flow<ViewState>
+        get() = _uiState.asStateFlow()
 
     init {
         viewModelScope.launch {
-            _uiState.value = ViewState.Loading
+            _uiState.emit(ViewState.Loading)
             val users = loadUsers(true)
-            _uiState.value = ViewState.Data(users)
+            _uiState.emit(ViewState.Data(users))
         }
     }
 

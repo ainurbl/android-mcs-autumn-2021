@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import java.io.InputStream
 import java.lang.Exception
 import java.net.URL
@@ -19,8 +21,6 @@ import kotlin.concurrent.thread
 class ListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var userList: List<Item> = emptyList()
-    var pool: ThreadPoolExecutor =
-        ThreadPoolExecutor(5, 15, 1000, TimeUnit.SECONDS, SynchronousQueue())
 
     class UserHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val avatarImageView = itemView.findViewById<ImageView>(R.id.avatarImageView)
@@ -66,18 +66,10 @@ class ListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 val userData = userList[position] as UserData
                 holder.userNameTextView.text = userData.userName
                 holder.groupNameTextView.text = userData.groupName
-                val url = URL(userData.avatarUrl)
-
-                pool.submit {
-                    val content = url.content as InputStream
-                    holder.avatarImageView.setImageDrawable(
-                        Drawable.createFromStream(
-                            content,
-                            "src"
-                        )
-                    )
-                }
-
+                Glide.with(holder.avatarImageView)
+                    .load(userData.avatarUrl)
+                    .transform(CircleCrop())
+                    .into(holder.avatarImageView)
             }
             else -> {
                 holder as SeparatorHolder
