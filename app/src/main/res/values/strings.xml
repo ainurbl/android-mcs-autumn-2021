@@ -2,4 +2,6 @@
     <string name="app_name">Learn Android</string>
     <string name="greeting">Hello Android course!</string>
     <string name="users_picture">User\'s picture</string>
+    <string name="android_mascot">android mascot</string>
+    <string name="volume_button_image">volume button image</string>
 </resources>
