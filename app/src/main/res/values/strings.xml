@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Learn Android</string>
     <string name="greeting">Hello Android course!</string>
+    <string name="users_picture">User\'s picture</string>
 </resources>
