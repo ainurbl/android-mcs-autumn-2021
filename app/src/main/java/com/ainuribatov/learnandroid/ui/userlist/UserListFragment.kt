@@ -1,14 +1,16 @@
-package com.ainuribatov.learnandroid
+package com.ainuribatov.learnandroid.ui.userlist
 
 import android.os.Bundle
 import android.view.View
-import com.ainuribatov.learnandroid.UserListViewModel.ViewState
+import com.ainuribatov.learnandroid.ui.userlist.UserListViewModel.ViewState
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.ainuribatov.learnandroid.ui.base.BaseFragment
+import com.ainuribatov.learnandroid.R
 import com.ainuribatov.learnandroid.databinding.FragmentUserListBinding
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect

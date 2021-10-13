@@ -1,4 +1,4 @@
-package com.ainuribatov.learnandroid
+package com.ainuribatov.learnandroid.ui.onboarding
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,10 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.ainuribatov.learnandroid.ui.base.BaseFragment
+import com.ainuribatov.learnandroid.R
 import com.ainuribatov.learnandroid.databinding.FragmentOnboadringBinding
+import com.ainuribatov.learnandroid.onboardingTextAdapterDelegate
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player

@@ -1,4 +1,4 @@
-package com.ainuribatov.learnandroid
+package com.ainuribatov.learnandroid.ui.userlist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.ainuribatov.learnandroid.entity.Item
+import com.ainuribatov.learnandroid.R
+import com.ainuribatov.learnandroid.entity.SeparatorData
+import com.ainuribatov.learnandroid.entity.UserData
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 

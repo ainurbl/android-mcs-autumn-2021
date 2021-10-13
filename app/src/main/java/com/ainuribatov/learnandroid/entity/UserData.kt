@@ -1,4 +1,4 @@
-package com.ainuribatov.learnandroid
+package com.ainuribatov.learnandroid.entity
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

@@ -1,8 +1,12 @@
-package com.ainuribatov.learnandroid
+package com.ainuribatov.learnandroid.ui.userlist
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import androidx.lifecycle.viewModelScope
+import com.ainuribatov.learnandroid.Api
+import com.ainuribatov.learnandroid.ui.base.BaseViewModel
+import com.ainuribatov.learnandroid.entity.Item
+import com.ainuribatov.learnandroid.entity.SeparatorData
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.asStateFlow
