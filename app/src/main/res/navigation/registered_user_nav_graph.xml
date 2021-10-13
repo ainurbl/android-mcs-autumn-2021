@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/registered_user_nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.ainuribatov.learnandroid.ui.main.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_userListFragment"
+            app:destination="@id/userListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_likesFragment"
+            app:destination="@id/likesFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_bookmarksFragment"
+            app:destination="@id/bookmarksFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.ainuribatov.learnandroid.ui.userlist.UserListFragment"
+        android:label="UserListFragment" />
+    <fragment
+        android:id="@+id/likesFragment"
+        android:name="com.ainuribatov.learnandroid.ui.likes.LikesFragment"
+        android:label="LikesFragment" />
+    <fragment
+        android:id="@+id/bookmarksFragment"
+        android:name="com.ainuribatov.learnandroid.ui.bookmarks.BookmarksFragment"
+        android:label="BookmarksFragment" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.ainuribatov.learnandroid.ui.news.NewsFragment"
+        android:label="NewsFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ainuribatov.learnandroid.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+</navigation>
