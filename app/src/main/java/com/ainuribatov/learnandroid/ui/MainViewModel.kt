@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 class MainViewModel : BaseViewModel() {
 
-    val isAuthorizedFlow: Flow<Boolean> = MutableStateFlow(false)
+    val isAuthorizedFlow: Flow<Boolean> = MutableStateFlow(true)
 
 
 }
