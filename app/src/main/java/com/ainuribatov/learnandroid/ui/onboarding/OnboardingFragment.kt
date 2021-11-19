@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ainuribatov.learnandroid.ui.base.BaseFragment
@@ -64,12 +65,10 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
         viewBinding.viewPager.attachDots(viewBinding.onboardingTextTabLayout)
 
         viewBinding.signInButton.setOnClickListener {
-            // TODO: Go to SignInFragment.
-            Toast.makeText(requireContext(), "Нажата кнопка войти", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
         }
         viewBinding.signUpButton.setOnClickListener {
-            // TODO: Go to SignUpFragment.
-            Toast.makeText(requireContext(), "Нажата кнопка зарегистрироваться", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_onboardingFragment_to_signUpFragment)
         }
     }
 
