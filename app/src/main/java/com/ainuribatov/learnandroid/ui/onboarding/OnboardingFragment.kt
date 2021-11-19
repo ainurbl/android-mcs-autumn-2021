@@ -41,11 +41,17 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
         TabLayoutMediator(tabLayout, this) { _, _ -> }.attach()
     }
 
-    private fun setupView(view: View) {
-        val soundButton = view.findViewById<ImageButton>(R.id.volumeControlButton)
+    private fun setupView() {
+        val soundButton = viewBinding.volumeControlButton
+        val currentVol = player?.volume
+        if (currentVol == 0f) {
+            soundButton.setImageResource(R.drawable.ic_volume_off_white_24dp)
+        } else {
+            soundButton.setImageResource(R.drawable.ic_volume_up_white_24dp)
+        }
         soundButton.setOnClickListener {
-            val curentVol = player?.volume
-            if (curentVol == 0f) {
+            val currentVol = player?.volume
+            if (currentVol == 0f) {
                 player?.volume = 1f
                 soundButton.setImageResource(R.drawable.ic_volume_up_white_24dp)
             } else {
@@ -58,7 +64,7 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupView(view)
+        setupView()
 
         viewBinding.playerView.player = player
         viewBinding.viewPager.setTextPages()
@@ -71,6 +77,8 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
             findNavController().navigate(R.id.action_onboardingFragment_to_signUpFragment)
         }
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
