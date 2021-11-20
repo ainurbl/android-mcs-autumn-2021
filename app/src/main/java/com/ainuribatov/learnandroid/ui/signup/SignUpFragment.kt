@@ -1,11 +1,19 @@
 package com.ainuribatov.learnandroid.ui.signup
 
 import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextPaint
 import android.text.TextWatcher
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.view.View
+import android.widget.CheckBox
 import androidx.activity.OnBackPressedCallback
+import androidx.core.text.buildSpannedString
+import androidx.core.text.inSpans
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -15,6 +23,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ainuribatov.learnandroid.R
 import com.ainuribatov.learnandroid.databinding.FragmentSignUpBinding
 import com.ainuribatov.learnandroid.ui.base.BaseFragment
+import com.ainuribatov.learnandroid.util.getSpannedString
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -50,7 +59,37 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
             )
 //            findNavController().navigate(R.id.emailConfirmationFragment)
         }
+        viewBinding.termsAndConditionsCheckBox.setClubRulesText {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://policies.google.com/terms")))
+        }
         subscribeToFormFields()
+    }
+
+    private fun CheckBox.setClubRulesText(
+        clubRulesClickListener: () -> Unit
+    ) {
+
+        // Turn on ClickableSpan.
+        movementMethod = LinkMovementMethod.getInstance()
+
+        val clubRulesClickSpan =
+            object : ClickableSpan() {
+                override fun onClick(widget: View) = clubRulesClickListener()
+                override fun updateDrawState(ds: TextPaint) {
+                    super.updateDrawState(ds)
+                    ds.color = resources.getColor(R.color.purple_200, null)
+                }
+            }
+
+        text =
+            resources.getSpannedString(
+                R.string.sign_up_terms_and_conditions_template,
+                buildSpannedString {
+                    inSpans(clubRulesClickSpan) {
+                        append(resources.getSpannedString(R.string.sign_up_club_rules))
+                    }
+                }
+            )
     }
 
     private fun onBackButtonPressed() {
