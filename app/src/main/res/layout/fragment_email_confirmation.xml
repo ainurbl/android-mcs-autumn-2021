@@ -38,10 +38,9 @@
 
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/verifyCodeButton"
         android:layout_width="0dp"
-        style="@style/Widget.OurAwesomeApp.PrimaryButton"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="48dp"
@@ -51,7 +50,7 @@
         app:layout_constraintBottom_toTopOf="@+id/goToMailButton"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/goToMailButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

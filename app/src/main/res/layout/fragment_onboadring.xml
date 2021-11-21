@@ -67,26 +67,24 @@
             app:tabMaxWidth="18dp"
             app:tabMinWidth="18dp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/signInButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
             android:text="@string/onboarding_sign_in_button_text"
-            android:backgroundTint="@color/brand_orange"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/signUpButton"
             android:layout_marginTop="48dp"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/signUpButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="24dp"
             android:text="@string/onboarding_sign_up_button_text"
             style="@style/Widget.OurAwesomeApp.SecondaryButton"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
