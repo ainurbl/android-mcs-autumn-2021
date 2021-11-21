@@ -33,5 +33,8 @@
     <string name="sign_up_sign_up_button_text">Зарегистрироваться</string>
     <string name="sign_up_password_text_layout_hint">Пароль</string>
     <string name="sign_up_email_text_layout_hint">Почта</string>
+    <string name="verification_code_submitted_text">Код подтверждения выслан на почту</string>
+    <string name="verify_code">Подтвердить код</string>
+    <string name="go_to_mail">Перейти в почту</string>
 
 </resources>

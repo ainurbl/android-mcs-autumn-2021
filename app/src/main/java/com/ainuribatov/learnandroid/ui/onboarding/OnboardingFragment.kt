@@ -18,6 +18,7 @@ import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
+import dev.chrisbanes.insetter.applyInsetter
 
 class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
 
@@ -65,7 +66,12 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
         super.onViewCreated(view, savedInstanceState)
 
         setupView()
-
+        viewBinding.volumeControlButton.applyInsetter {
+            type(statusBars = true) { margin() }
+        }
+        viewBinding.signUpButton.applyInsetter {
+            type(navigationBars = true) { margin() }
+        }
         viewBinding.playerView.player = player
         viewBinding.viewPager.setTextPages()
         viewBinding.viewPager.attachDots(viewBinding.onboardingTextTabLayout)
@@ -77,7 +83,6 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
             findNavController().navigate(R.id.action_onboardingFragment_to_signUpFragment)
         }
     }
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

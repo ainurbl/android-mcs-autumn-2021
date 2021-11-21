@@ -131,6 +131,7 @@
         android:id="@+id/signUpButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        style="@style/Widget.OurAwesomeApp.PrimaryButton"
         android:layout_marginHorizontal="24dp"
         android:layout_marginBottom="48dp"
         android:text="@string/sign_up_sign_up_button_text"

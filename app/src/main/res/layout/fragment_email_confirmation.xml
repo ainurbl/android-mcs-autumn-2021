@@ -16,10 +16,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/verificationSubmittedTextView"
+        app:layout_constraintBottom_toTopOf="@+id/verificationCodeEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingTop="200dp"
+        android:paddingBottom="16dp"
+        android:text="@string/verification_code_submitted_text"
+        />
+
     <com.ainuribatov.learnandroid.ui.emailconfirmation.VerificationCodeEditText
         android:layout_width="0dp"
+        android:id="@+id/verificationCodeEditText"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backButton" />
+        app:layout_constraintTop_toBottomOf="@+id/verificationSubmittedTextView" />
+
+
+
+    <Button
+        android:id="@+id/verifyCodeButton"
+        android:layout_width="0dp"
+        style="@style/Widget.OurAwesomeApp.PrimaryButton"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="48dp"
+        android:text="@string/verify_code"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/goToMailButton"
+        />
+
+    <Button
+        android:id="@+id/goToMailButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="48dp"
+        style="@style/Widget.OurAwesomeApp.SecondaryButton"
+        android:text="@string/go_to_mail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

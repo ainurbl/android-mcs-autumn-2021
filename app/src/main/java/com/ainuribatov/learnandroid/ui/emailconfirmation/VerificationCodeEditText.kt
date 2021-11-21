@@ -30,7 +30,6 @@ class VerificationCodeEditText @JvmOverloads constructor(
             viewBinding.slot5,
             viewBinding.slot6,
         )
-
     private val slotValues: Array<CharSequence?> = Array(6) { null }
 
     var onVerificationCodeFilledListener: (String) -> Unit = {}

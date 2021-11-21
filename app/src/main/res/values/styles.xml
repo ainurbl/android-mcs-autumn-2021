@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.OurAwesomeApp.PrimaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/brand_orange</item>
+    </style>
+
+    <style name="Widget.OurAwesomeApp.SecondaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/brand_teal</item>
+    </style>
+
+</resources>
