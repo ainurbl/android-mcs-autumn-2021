@@ -41,7 +41,6 @@
             android:layout_marginEnd="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/volume_button_image"
-            android:src="@drawable/ic_volume_off_white_24dp"
             app:layout_constraintEnd_toEndOf="@+id/playerView"
             app:layout_constraintTop_toTopOf="@+id/playerView" />
 
