@@ -1,12 +1,16 @@
-package com.ainuribatov.learnandroid
+package com.ainuribatov.learnandroid.ui.onboarding
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.ainuribatov.learnandroid.ui.base.BaseFragment
+import com.ainuribatov.learnandroid.R
 import com.ainuribatov.learnandroid.databinding.FragmentOnboadringBinding
+import com.ainuribatov.learnandroid.onboardingTextAdapterDelegate
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
@@ -37,11 +41,17 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
         TabLayoutMediator(tabLayout, this) { _, _ -> }.attach()
     }
 
-    private fun setupView(view: View) {
-        val soundButton = view.findViewById<ImageButton>(R.id.volumeControlButton)
+    private fun setupView() {
+        val soundButton = viewBinding.volumeControlButton
+        val currentVol = player?.volume
+        if (currentVol == 0f) {
+            soundButton.setImageResource(R.drawable.ic_volume_off_white_24dp)
+        } else {
+            soundButton.setImageResource(R.drawable.ic_volume_up_white_24dp)
+        }
         soundButton.setOnClickListener {
-            val curentVol = player?.volume
-            if (curentVol == 0f) {
+            val currentVol = player?.volume
+            if (currentVol == 0f) {
                 player?.volume = 1f
                 soundButton.setImageResource(R.drawable.ic_volume_up_white_24dp)
             } else {
@@ -54,21 +64,21 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupView(view)
+        setupView()
 
         viewBinding.playerView.player = player
         viewBinding.viewPager.setTextPages()
         viewBinding.viewPager.attachDots(viewBinding.onboardingTextTabLayout)
 
         viewBinding.signInButton.setOnClickListener {
-            // TODO: Go to SignInFragment.
-            Toast.makeText(requireContext(), "Нажата кнопка войти", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
         }
         viewBinding.signUpButton.setOnClickListener {
-            // TODO: Go to SignUpFragment.
-            Toast.makeText(requireContext(), "Нажата кнопка зарегистрироваться", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_onboardingFragment_to_signUpFragment)
         }
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
