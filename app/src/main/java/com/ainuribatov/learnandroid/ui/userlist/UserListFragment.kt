@@ -61,6 +61,11 @@ class UserListFragment : BaseFragment(R.layout.fragment_user_list) {
             }
             is ViewState.Error -> {
                 viewBinding.userListRecyclerView.isVisible = false
+                viewBinding.progressBar.isVisible = false
+            }
+            else -> {
+                viewBinding.progressBar.isVisible = false
+                viewBinding.errorTextView.text = getString(R.string.empty_list_response)
             }
         }
 
