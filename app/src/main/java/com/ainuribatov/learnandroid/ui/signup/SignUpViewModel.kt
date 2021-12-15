@@ -1,13 +1,12 @@
 package com.ainuribatov.learnandroid.ui.signup
 
 import androidx.lifecycle.viewModelScope
-import com.ainuribatov.learnandroid.repository.AuthRepository
+import com.ainuribatov.learnandroid.repository.AuthRepositoryOld
 import com.ainuribatov.learnandroid.ui.base.BaseViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class SignUpViewModel : BaseViewModel() {
 
@@ -26,7 +25,7 @@ class SignUpViewModel : BaseViewModel() {
     ) {
         viewModelScope.launch {
             try {
-                AuthRepository.signUp(
+                AuthRepositoryOld.signUp(
                     firstname,
                     lastname,
                     nickname,

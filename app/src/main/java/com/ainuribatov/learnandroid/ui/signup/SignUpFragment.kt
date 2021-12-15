@@ -24,6 +24,7 @@ import com.ainuribatov.learnandroid.R
 import com.ainuribatov.learnandroid.databinding.FragmentSignUpBinding
 import com.ainuribatov.learnandroid.ui.base.BaseFragment
 import com.ainuribatov.learnandroid.util.getSpannedString
+import dev.chrisbanes.insetter.applyInsetter
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -46,6 +47,12 @@ class SignUpFragment : BaseFragment(R.layout.fragment_sign_up) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subscribeToEvents()
+        viewBinding.backButton.applyInsetter {
+            type(statusBars = true) { margin() }
+        }
+        viewBinding.signUpButton.applyInsetter {
+            type(navigationBars = true) { margin() }
+        }
         viewBinding.backButton.setOnClickListener {
             onBackButtonPressed()
         }

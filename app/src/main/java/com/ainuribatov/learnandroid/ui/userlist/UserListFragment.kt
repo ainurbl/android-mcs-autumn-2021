@@ -12,15 +12,21 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.ainuribatov.learnandroid.ui.base.BaseFragment
 import com.ainuribatov.learnandroid.R
 import com.ainuribatov.learnandroid.databinding.FragmentUserListBinding
+import dagger.hilt.android.AndroidEntryPoint
+import dev.chrisbanes.insetter.applyInsetter
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
 
+@AndroidEntryPoint
 class UserListFragment : BaseFragment(R.layout.fragment_user_list) {
     private val viewBinding by viewBinding(FragmentUserListBinding::bind)
     private val viewModel: UserListViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewBinding.userListRecyclerView.applyInsetter {
+            type(statusBars = true) { margin() }
+        }
         setupRecyclerView()
         subscribeToViewState()
     }
@@ -52,6 +58,9 @@ class UserListFragment : BaseFragment(R.layout.fragment_user_list) {
                 adapter.userList = viewState.userList
                 adapter.notifyDataSetChanged()
                 viewBinding.progressBar.isVisible = false
+            }
+            is ViewState.Error -> {
+                viewBinding.userListRecyclerView.isVisible = false
             }
         }
 
