@@ -4,23 +4,37 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import androidx.lifecycle.viewModelScope
 import com.ainuribatov.learnandroid.Api
+import com.ainuribatov.learnandroid.BuildConfig
+import com.ainuribatov.learnandroid.data.network.MockApi
+import com.ainuribatov.learnandroid.data.network.interceptor.AuthorizationInterceptor
 import com.ainuribatov.learnandroid.ui.base.BaseViewModel
 import com.ainuribatov.learnandroid.entity.Item
 import com.ainuribatov.learnandroid.entity.SeparatorData
+import com.ainuribatov.learnandroid.interactor.UserListInteractor
+import com.haroldadmin.cnradapter.NetworkResponse
 import com.squareup.moshi.Moshi
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import timber.log.Timber
+import javax.inject.Inject
 
-class UserListViewModel : BaseViewModel() {
+@HiltViewModel
+class UserListViewModel @Inject constructor(
+    private val userListInteractor: UserListInteractor
+) : BaseViewModel() {
 
     sealed class ViewState {
         object Loading : ViewState()
         data class Data(val userList: List<Item>) : ViewState()
+        object Empty : ViewState()
+        object Error : ViewState()
     }
 
     private val _uiState: MutableStateFlow<ViewState> = MutableStateFlow(ViewState.Loading)
@@ -30,9 +44,21 @@ class UserListViewModel : BaseViewModel() {
     init {
         viewModelScope.launch {
             _uiState.emit(ViewState.Loading)
-            val users = loadUsers(true)
-            _uiState.emit(ViewState.Data(users))
+            when (val response = userListInteractor.loadUsers()) {
+                is NetworkResponse.Success -> {
+                    if (response.body.isEmpty()) {
+                        _uiState.emit(ViewState.Empty)
+                    } else {
+                        _uiState.emit(ViewState.Data(decorateUsers(response.body)))
+                    }
+                }
+                else -> {
+                    _uiState.emit(ViewState.Error)
+                }
+            }
+
         }
+
     }
 
     private fun decorateUsers(users: List<Item>): List<Item> {
@@ -42,33 +68,5 @@ class UserListViewModel : BaseViewModel() {
             decorated.add(SeparatorData())
         }
         return decorated
-    }
-
-    private suspend fun loadUsers(decorated: Boolean): List<Item> {
-        val users = withContext(Dispatchers.IO) {
-            Thread.sleep(3000)
-            provideApi().getUsers().data
-        }
-        if (decorated) {
-            return decorateUsers(users)
-        }
-        return users
-    }
-
-    private fun provideApi(): Api {
-        return Retrofit.Builder()
-            .client(provideOkHttpClient())
-            .baseUrl("https://reqres.in/api/")
-            .addConverterFactory(MoshiConverterFactory.create(provideMoshi()))
-            .build()
-            .create(Api::class.java)
-    }
-
-    private fun provideMoshi(): Moshi {
-        return Moshi.Builder().build()
-    }
-
-    private fun provideOkHttpClient(): OkHttpClient {
-        return OkHttpClient.Builder().build()
     }
 }
