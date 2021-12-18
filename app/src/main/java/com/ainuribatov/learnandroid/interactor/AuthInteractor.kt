@@ -12,7 +12,7 @@ class AuthInteractor @Inject constructor(
     private val authRepository: AuthRepository
 ) {
 
-    suspend fun isAuthorized(): Flow<Boolean> =
+    suspend fun isAuthorizedFlow(): Flow<Boolean> =
         authRepository.isAuthorizedFlow()
 
     suspend fun signInWithEmail(email: String, password: String): NetworkResponse<AuthTokens, SignInWithEmailErrorResponse> {

@@ -1,11 +1,12 @@
 package com.ainuribatov.learnandroid.di.module
 
 import android.os.Build
-import com.ainuribatov.learnandroid.Api
+import com.ainuribatov.learnandroid.data.network.Api
 import com.ainuribatov.learnandroid.BuildConfig
 import com.ainuribatov.learnandroid.data.network.MockApi
 import com.ainuribatov.learnandroid.data.network.interceptor.AuthorizationInterceptor
 import com.ainuribatov.learnandroid.data.network.interceptor.LearnAndroidAuthenticator
+import com.ainuribatov.learnandroid.data.network.interceptor.UserAgentInterceptor
 import com.ainuribatov.learnandroid.repository.AuthRepository
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import com.squareup.moshi.Moshi
@@ -44,7 +45,7 @@ object NetworkModule {
             .apply {
                 readTimeout(60, TimeUnit.SECONDS)
                 connectTimeout(60, TimeUnit.SECONDS)
-//                addNetworkInterceptor(UserAgentInterceptor(userAgent))
+                addNetworkInterceptor(UserAgentInterceptor(userAgent))
                 addNetworkInterceptor(AuthorizationInterceptor(authRepository))
                 authenticator(LearnAndroidAuthenticator(authRepository))
                 if (BuildConfig.DEBUG) {

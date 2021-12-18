@@ -1,9 +1,8 @@
-package com.ainuribatov.learnandroid
+package com.ainuribatov.learnandroid.data.network
 
 import com.ainuribatov.learnandroid.data.network.request.CreateProfileRequest
 import com.ainuribatov.learnandroid.data.network.request.RefreshAuthTokensRequest
 import com.ainuribatov.learnandroid.data.network.request.SignInWithEmailRequest
-import com.ainuribatov.learnandroid.data.network.response.GetUsersResponse
 import com.ainuribatov.learnandroid.data.network.response.VerificationTokenResponse
 import com.ainuribatov.learnandroid.data.network.response.error.*
 import com.ainuribatov.learnandroid.entity.AuthTokens
