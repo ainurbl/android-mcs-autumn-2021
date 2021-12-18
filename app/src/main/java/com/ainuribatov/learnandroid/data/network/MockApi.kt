@@ -1,10 +1,8 @@
 package com.ainuribatov.learnandroid.data.network
 
-import com.ainuribatov.learnandroid.Api
 import com.ainuribatov.learnandroid.data.network.request.CreateProfileRequest
 import com.ainuribatov.learnandroid.data.network.request.RefreshAuthTokensRequest
 import com.ainuribatov.learnandroid.data.network.request.SignInWithEmailRequest
-import com.ainuribatov.learnandroid.data.network.response.GetUsersResponse
 import com.ainuribatov.learnandroid.data.network.response.error.*
 import com.ainuribatov.learnandroid.entity.AuthTokens
 import com.haroldadmin.cnradapter.NetworkResponse
@@ -16,146 +14,146 @@ class MockApi : Api {
 
         return NetworkResponse.Success(
             body = listOf(
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
-//                UserData(
-//                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
-//                    userName = "Лёша",
-//                    groupName = "Б09.мкн"
-//                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
+                UserData(
+                    avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
+                    userName = "Лёша",
+                    groupName = "Б09.мкн"
+                ),
             ),
             code = 200
         )

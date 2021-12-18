@@ -1,6 +1,6 @@
 package com.ainuribatov.learnandroid.repository
 
-import com.ainuribatov.learnandroid.Api
+import com.ainuribatov.learnandroid.data.network.Api
 import com.ainuribatov.learnandroid.data.network.request.CreateProfileRequest
 import com.ainuribatov.learnandroid.data.network.request.RefreshAuthTokensRequest
 import com.ainuribatov.learnandroid.data.network.request.SignInWithEmailRequest
@@ -79,15 +79,17 @@ class AuthRepository @Inject constructor(
         verificationToken: String,
         firstName: String,
         lastName: String,
+        userName: String,
         password: String
     ): NetworkResponse<AuthTokens, CreateProfileErrorResponse> {
         return api.createProfile(
             CreateProfileRequest(
-                verificationToken,
-                firstName,
-                lastName,
-                email,
-                password
+                verificationToken = verificationToken,
+                firstName = firstName,
+                lastName = lastName,
+                userName = userName,
+                email = email,
+                password = password
             )
         )
     }
