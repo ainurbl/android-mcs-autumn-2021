@@ -6,6 +6,7 @@ import com.ainuribatov.learnandroid.data.network.request.SignInWithEmailRequest
 import com.ainuribatov.learnandroid.data.network.response.VerificationTokenResponse
 import com.ainuribatov.learnandroid.data.network.response.error.*
 import com.ainuribatov.learnandroid.entity.AuthTokens
+import com.ainuribatov.learnandroid.entity.Post
 import com.ainuribatov.learnandroid.entity.UserData
 import com.haroldadmin.cnradapter.NetworkResponse
 import retrofit2.http.*
@@ -42,4 +43,7 @@ interface Api {
     suspend fun createProfile(
             @Body request: CreateProfileRequest
     ): NetworkResponse<AuthTokens, CreateProfileErrorResponse>
+
+    @POST("posts")
+    suspend fun getPosts(): NetworkResponse<List<Post>, Unit>
 }
