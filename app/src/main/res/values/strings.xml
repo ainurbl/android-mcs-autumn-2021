@@ -37,5 +37,7 @@
     <string name="verify_code">Подтвердить код</string>
     <string name="go_to_mail">Перейти в почту</string>
     <string name="empty_list_response">List is empty :(</string>
+    <string name="news_toolbar_title">Мобильная разработка</string>
+    <string name="news_add_new_post_content">Добавить пост</string>
 
 </resources>

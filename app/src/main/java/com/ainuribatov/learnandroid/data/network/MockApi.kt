@@ -7,6 +7,7 @@ import com.ainuribatov.learnandroid.data.network.response.error.*
 import com.ainuribatov.learnandroid.entity.AuthTokens
 import com.haroldadmin.cnradapter.NetworkResponse
 import com.ainuribatov.learnandroid.data.network.response.VerificationTokenResponse
+import com.ainuribatov.learnandroid.entity.Post
 import com.ainuribatov.learnandroid.entity.UserData
 
 class MockApi : Api {
@@ -188,6 +189,10 @@ class MockApi : Api {
     }
 
     override suspend fun createProfile(request: CreateProfileRequest): NetworkResponse<AuthTokens, CreateProfileErrorResponse> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getPosts(): NetworkResponse<List<Post>, Unit> {
         TODO("Not yet implemented")
     }
 }
