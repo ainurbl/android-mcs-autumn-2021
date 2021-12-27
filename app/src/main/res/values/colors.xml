@@ -11,5 +11,6 @@
     <color name="brand_orange">#F7A83E</color>
     <color name="brand_teal">#6DC8C3</color>
     <color name="brand_blue">#127ABE</color>
+    <color name="color_post_like_border">#673AB7</color>
 
 </resources>
