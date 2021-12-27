@@ -1,10 +1,14 @@
+<!DOCTYPE resources [
+    <!-- Non-breaking space, U+00A0. -->
+    <!ENTITY nbsp "&#160;">
+    ]>
 <resources>
     <string name="app_name">Learn Android</string>
     <string name="greeting">Hello Android course!</string>
     <string name="users_picture">User\'s picture</string>
     <string name="android_mascot">android mascot</string>
     <string name="volume_button_image">volume button image</string>
-    <string name="onboarding_view_pager_text_1">Осень 2021 г., СПбГУ</string>
+    <string name="onboarding_view_pager_text_1">Осень 2021&nbsp;г., СПбГУ</string>
     <string name="onboarding_view_pager_text_2">Мы изучаем разработку под Android</string>
     <string name="onboarding_view_pager_text_3">Добро пожаловать в команду</string>
     <string name="onboarding_sign_in_button_text">Войти</string>
@@ -41,5 +45,6 @@
     <string name="news_add_new_post_content">Добавить пост</string>
     <string name="profile_logout_button_text">Log out</string>
     <string name="common_general_error_text">Something went wrong :(</string>
+    <string name="common_counter_prefix">+%d</string>
 
 </resources>
