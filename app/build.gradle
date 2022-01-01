@@ -149,4 +149,10 @@ dependencies {
     implementation "androidx.hilt:hilt-navigation-fragment:1.0.0"
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    // Room (ORM like database tool).
+    def roomVersion = "2.4.0"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
 }
