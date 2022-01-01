@@ -9,6 +9,6 @@ import javax.inject.Inject
 class UserListInteractor @Inject constructor(
     private val userListRepository: UserListRepository
 ) {
-    suspend fun loadUsers(): NetworkResponse<List<Item>, Unit> =
+    suspend fun loadUsers(): NetworkResponse<List<UserData>, Unit> =
         userListRepository.getUsers()
 }

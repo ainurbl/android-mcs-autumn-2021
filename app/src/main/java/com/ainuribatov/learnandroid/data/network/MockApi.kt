@@ -12,20 +12,27 @@ import com.ainuribatov.learnandroid.entity.UserData
 
 class MockApi : Api {
     override suspend fun getUsers(): NetworkResponse<List<UserData>, Unit> {
-
         return NetworkResponse.Success(
-            body = listOf(
+            body = generateLeha(100),
+            code = 200
+        )
+    }
+
+    private fun generateLeha(n: Int): List<UserData> {
+        val users = mutableListOf<UserData>()
+        repeat(n) {
+            users.add(
                 UserData(
                     avatarUrl = "https://sun9-75.userapi.com/impg/Pmwi-wYiLsvYmwx-vdqdjAjYa_wpJVaGUUh8vw/0ZGgCahPtt0.jpg?size=798x800&quality=96&sign=186834bb91f11d0dd712ca272d3ca828&type=album",
                     firstName = "Лёша",
-                    groupName = "Б09.мкн",
+                    groupName = "Б${it}.мкн",
                     id = 228,
                     userName = "Leha Medb",
                     lastName = "Карнавал"
                 )
-            ),
-            code = 200
-        )
+            )
+        }
+        return users
     }
 
     override suspend fun signInWithEmail(request: SignInWithEmailRequest): NetworkResponse<AuthTokens, SignInWithEmailErrorResponse> {
