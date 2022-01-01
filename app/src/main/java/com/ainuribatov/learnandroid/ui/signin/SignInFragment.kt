@@ -3,6 +3,7 @@ package com.ainuribatov.learnandroid.ui.signin
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.activity.OnBackPressedCallback
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
@@ -51,6 +52,7 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
                     password = viewBinding.passwordEditText.text?.toString() ?: ""
             )
         }
+        runAnimation()
         subscribeToFormFields()
     }
 
@@ -89,6 +91,11 @@ class SignInFragment : BaseFragment(R.layout.fragment_sign_in) {
                     password = password?.toString()
             )
         }
+    }
+
+    private fun runAnimation() {
+        val animation = AnimationUtils.loadAnimation(context, R.anim.emkn_animation_source)
+        viewBinding.mknLogoImageView.startAnimation(animation)
     }
 
     private fun decideSignInButtonEnabledState(email: String?, password: String?) {
