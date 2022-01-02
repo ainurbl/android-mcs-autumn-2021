@@ -48,5 +48,7 @@
     <string name="common_counter_prefix">+%d</string>
     <string name="search_people">Search people</string>
     <string name="search_user_list">Search</string>
+    <string name="profile_name_example">Profile name</string>
+    <string name="first_name">First name</string>
 
 </resources>
