@@ -1,16 +1,16 @@
 package com.ainuribatov.learnandroid.ui.onboarding
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
-import android.widget.ImageButton
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.ainuribatov.learnandroid.ui.base.BaseFragment
 import com.ainuribatov.learnandroid.R
 import com.ainuribatov.learnandroid.databinding.FragmentOnboadringBinding
 import com.ainuribatov.learnandroid.onboardingTextAdapterDelegate
+import com.ainuribatov.learnandroid.ui.base.BaseFragment
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
@@ -19,6 +19,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import dev.chrisbanes.insetter.applyInsetter
+import timber.log.Timber
 
 class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
 
@@ -74,6 +75,17 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
         }
         viewBinding.playerView.player = player
         viewBinding.viewPager.setTextPages()
+        viewBinding.viewPager.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                Timber.d("Current position: $position")
+                super.onPageSelected(position)
+                Handler(Looper.getMainLooper()).postDelayed(
+                    { viewBinding.viewPager.currentItem = (position + 1) % 3 },
+                    2_000
+                )
+            }
+        })
         viewBinding.viewPager.attachDots(viewBinding.onboardingTextTabLayout)
 
         viewBinding.signInButton.setOnClickListener {
@@ -110,3 +122,4 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
         player?.release()
     }
 }
+
