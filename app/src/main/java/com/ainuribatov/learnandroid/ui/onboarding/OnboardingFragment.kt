@@ -25,6 +25,9 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
 
     private val viewBinding by viewBinding(FragmentOnboadringBinding::bind)
 
+    private val handler = Handler(Looper.getMainLooper())
+    private var runnable: Runnable? = null
+
     private var player: ExoPlayer? = null
 
     private fun ViewPager2.setTextPages() {
@@ -77,11 +80,15 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
         viewBinding.viewPager.setTextPages()
         viewBinding.viewPager.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
+
             override fun onPageSelected(position: Int) {
                 Timber.d("Current position: $position")
                 super.onPageSelected(position)
-                Handler(Looper.getMainLooper()).postDelayed(
-                    { viewBinding.viewPager.currentItem = (position + 1) % 3 },
+                runnable = Runnable {
+                    viewBinding.viewPager.currentItem = (position + 1) % 3
+                }
+                handler.postDelayed(
+                    runnable!!,
                     2_000
                 )
             }
@@ -115,6 +122,10 @@ class OnboardingFragment : BaseFragment(R.layout.fragment_onboadring) {
     override fun onPause() {
         super.onPause()
         player?.pause()
+        if (runnable != null) {
+            handler.removeCallbacks(runnable!!)
+            runnable = null
+        }
     }
 
     override fun onDestroy() {
